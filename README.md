@@ -7,8 +7,12 @@ API REST para simulação da etapa de originação de precatórios, permitindo o
 - Python 3.8+
 - FastAPI (framework web)
 - SQLite (banco de dados)
+- SQLAlchemy (ORM)
 - Pydantic (validação de dados)
 - APScheduler (agendamento de tarefas)
+- Uvicorn (servidor ASGI)
+- Python-Multipart (processamento de form-data)
+- Aiofiles (manipulação assíncrona de arquivos)
 - Docker (containerização)
 
 ## Estrutura do Projeto
@@ -16,16 +20,19 @@ API REST para simulação da etapa de originação de precatórios, permitindo o
 ```
 .
 ├── adapters/               # Implementações concretas das interfaces
+│   └── repositories/      # Repositórios para persistência de dados
 ├── core/                  # Regras de negócio e entidades
 │   ├── entities/         # Classes de domínio
 │   └── tests/           # Testes unitários
 ├── ports/                # Interfaces e adaptadores
 │   ├── database/        # Camada de persistência
 │   └── interfaces/      # Interfaces de repositório
-├── uploads/             # Diretório para arquivos enviados
+├── static/              # Arquivos estáticos (CSS, JS, etc)
+├── templates/           # Templates HTML
 ├── Dockerfile           # Configuração do container
 ├── docker-compose.yml   # Configuração do ambiente
 ├── main.py             # Ponto de entrada da aplicação
+├── requirements.txt     # Dependências do projeto
 └── README.md           # Este arquivo
 ```
 
@@ -71,7 +78,7 @@ pip install -r requirements.txt
 
 4. Inicie a API:
 ```bash
-python main.py
+uvicorn main:app --reload
 ```
 
 A API estará disponível em `http://localhost:8000`

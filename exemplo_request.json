@@ -1,0 +1,12 @@
+{
+  "nome": "João da Silva",
+  "cpf_cnpj": "12345678901",
+  "email": "joao@email.com",
+  "telefone": "11999999999",
+  "precatorio": {
+    "numero_precatorio": "0000123-45.2024.1.00.0000",
+    "valor_nominal": "50000.00",
+    "foro": "São Paulo",
+    "data_publicacao": "2024-05-24T00:00:00"
+  }
+}

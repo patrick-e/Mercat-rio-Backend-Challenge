@@ -15,6 +15,11 @@ class CredorRepository(ICredorRepository):
         """
         Cria um novo credor com seu precatório associado
         """
+        # Verificar se já existe um credor com o mesmo CPF/CNPJ
+        credor_existente = self.buscar_por_cpf_cnpj(credor.cpf_cnpj)
+        if credor_existente:
+            raise ValueError(f"Já existe um credor cadastrado com o CPF/CNPJ {credor.cpf_cnpj}")
+
         # Criar credor
         credor_query = """
             INSERT INTO credores (nome, cpf_cnpj, email, telefone)

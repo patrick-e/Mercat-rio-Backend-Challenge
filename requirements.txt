@@ -5,3 +5,5 @@ python-multipart>=0.0.5
 aiofiles>=0.7.0
 SQLAlchemy>=1.4.23
 apscheduler>=3.9.1
+pytest==8.3.5
+requests>=2.31.0

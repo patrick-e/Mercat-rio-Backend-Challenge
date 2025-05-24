@@ -36,9 +36,8 @@ class Precatorio:
         """
         erros = []
 
-        # Não validamos credor_id na criação inicial
-        # if not self.credor_id:
-        #     erros.append("Credor é obrigatório")
+        if not self.credor_id:
+            erros.append("Credor é obrigatório")
 
         if not self.validar_numero_precatorio():
             erros.append("Número do precatório inválido")
