@@ -175,11 +175,24 @@ Simula uma API externa de consulta de certidões.
 
 ```bash
 # Com ambiente virtual ativado
-python -m unittest core/tests/tests.py
+pytest core/tests/tests.py -v
 
 # Ou usando Docker
-docker-compose exec api python -m unittest core/tests/tests.py
+docker-compose exec api pytest core/tests/tests.py -v
+
+# Para ver a cobertura de testes
+pytest --cov=core core/tests/tests.py
+
+# Para gerar um relatório HTML da cobertura
+pytest --cov=core --cov-report=html core/tests/tests.py
 ```
+
+Os testes são escritos usando pytest, uma framework de testes moderna e poderosa para Python. Algumas opções úteis:
+
+- `-v`: Modo verboso, mostra cada teste individual
+- `-k "test_name"`: Executa apenas testes que contenham "test_name" no nome
+- `--pdb`: Entra no debugger ao encontrar um erro
+- `--cov`: Mostra a cobertura de testes (requer pytest-cov)
 
 ## Contribuindo
 
